@@ -12,8 +12,8 @@ let stage = 0;
 
 button.addEventListener("click",()=>{if (stage <= 8) {
     changeLevel(1);
-    // showLevel();
 } else {
+    button.disabled = true;
     callDialog("max");
 }});
 
@@ -32,14 +32,10 @@ function changeLevel(next) {
     return level.innerHTML = stage;
 };
 
-// function showLevel() {
-//     return level.innerHTML = stage;
-// };
-
 function callDialog(result) {
-    if (result === "success") {
+    if (result == "success") {
         alert("Przedmiot został ulepszony.");
-    } else if (result === "fail") {
+    } else if (result == "fail") {
         alert("Zawiodłeś!");
     } else {
         alert("Maksymalny poziom przedmiotu.");
