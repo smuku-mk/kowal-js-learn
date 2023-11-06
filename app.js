@@ -5,14 +5,14 @@
 // 4. Komunikaty kowala w dokumencie
 // 5. Przycisk zacznij od nowa
 
-let stage = 0;
-let level = document.querySelector(`#level`);
+const level = document.querySelector(`#level`);
 const button = document.querySelector(`#improve`);
+let stage = 0;
 
 
 button.addEventListener("click",()=>{if (stage <= 8) {
     changeLevel(1);
-    showLevel();
+    // showLevel();
 } else {
     callDialog("max");
 }});
@@ -29,11 +29,12 @@ function changeLevel(next) {
     stage = 0;
         callDialog("fail");
     }
-};
-
-function showLevel() {
     return level.innerHTML = stage;
 };
+
+// function showLevel() {
+//     return level.innerHTML = stage;
+// };
 
 function callDialog(result) {
     if (result === "success") {
