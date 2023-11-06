@@ -6,31 +6,63 @@
 // 5. Przycisk zacznij od nowa
 
 const level = document.querySelector(`#level`);
-const button = document.querySelector(`#improve`);
+const impButton = document.querySelector(`#improve`);
+const resButton = document.querySelector(`#reset`);
+const counter = document.querySelector(`#counter`);
 let stage = 0;
+let failCounter = 0;
 
 
-button.addEventListener("click",()=>{if (stage <= 8) {
+impButton.addEventListener("click",()=>{if (stage < 9) {
     changeLevel(1);
 } else {
     button.disabled = true;
-    callDialog("max");
+    callDialog("stop");
 }});
 
 function takeChance(min, max) {
     return Math.floor(Math.random() * (max-min+1) + min);
 };
 
+// Szansa brudnopis
+// +1 - 90%
+// +2 - 90%
+// +3 - 80%
+// +4 - 80%
+// +5 - 70%
+// +6 - 60%
+// +7 - 50%
+// +8 - 40%
+// +9 - 30%
+
 function changeLevel(next) {
-    if (takeChance(1, 10) >= 1) {
+    if (takeChance(1, 10) >= 4) {
     stage = stage + next;
         callDialog("success");
-    } else {
+    }
+    else {
     stage = 0;
         callDialog("fail");
+        countAttempts();
     }
     return level.innerHTML = stage;
 };
+
+function countAttempts() {
+    failCounter++
+    counter.innerHTML = failCounter;
+}
+
+function resetProgress() {
+    stage = 0;
+    failCounter = 0;
+    level.innerHTML = stage;
+    counter.innerHTML = failCounter;
+}
+
+resButton.addEventListener("click",()=>{
+    resetProgress();
+} );
 
 function callDialog(result) {
     if (result == "success") {
@@ -40,5 +72,4 @@ function callDialog(result) {
     } else {
         alert("Maksymalny poziom przedmiotu.");
     }
-    return result;
 };
