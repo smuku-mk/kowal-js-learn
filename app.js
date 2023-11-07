@@ -1,11 +1,12 @@
 // TODO
 // 1. Licznik prób <<<<<<<<<<<<DONE>
 // 2. Zmiana statystyk
-// 3. Szansa na ulepszenie zależna od poziomu plusa <<<<<<<<<<<<DONE>
-// 4. Komunikaty kowala w dokumencie
+// 3. Szansa na ulepszenie zależna od poziomu plusa taka jak w Metinie <<<<<<<<<<<<DONE>
+// 4. Komunikaty kowala w dokumencie zamiast alert
 // 5. Przycisk zacznij od nowa <<<<<<<<<<<<DONE>
 // 6. Dźwięki ulepszania i spalania
 // 7. Test konsolowy <<<<<<<<<<<<DONE>
+// 8. Etap 2
 
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
